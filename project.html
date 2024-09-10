@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page avec Animation 3D Spline</title>
+  <style>
+	  .image-button {
+    display: inline-flex;
+    border: none;
+    cursor: help;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transform: rotate(15deg);
+    
+  }
+
+  .image-button img {
+    margin-left: 70rem;
+    margin-top: -5rem;
+    position: fixed;
+    width: 250px; /* Ajuste la taille de l'image */
+    height: 250px; /* Garde le ratio de l'image */
+
+  }
+
+
+  .image-button img:hover {
+    opacity: 0.8; /* Effet au survol pour imiter un bouton */
+    
+  }
+	
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Empêche les barres de défilement */
+      font-family: Arial, sans-serif;
+      color: white; /* Couleur du texte pour contraster avec l'arrière-plan */
+    }
+
+    .background-3d {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1; /* Place l'animation en arrière-plan */
+    }
+
+    .content {
+      position: relative;
+      z-index: 1; /* Place le contenu au-dessus de l'animation */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Conteneur pour l'animation 3D -->
+  <div class="background-3d">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.25/build/spline-viewer.js"></script>
+    <spline-viewer url="https://prod.spline.design/omj0vEtnH0UfHHhU/scene.splinecode"></spline-viewer>
+  </div>
+  <!-- Le bouton image cliquable -->
+<a href="index.html" class="image-button">
+	<img src="BADGE.png" alt="Description du bouton">
+  </a>
+  
+  <!-- Contenu principal de la page -->
+  <div class="content">
+  </div>
+</body>
+</html>
