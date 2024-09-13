@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>la casa</title>
+  </head>
+
+  <body>
+    <style>
+      /*Typographie*/
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+
+      h1 {
+        font-size: 5vw;
+      }
+
+      h2 {
+        font-size: 2vw;
+      }
+
+      h3 {
+        font-size: 2vw;
+      }
+
+      h4 {
+        font-size: 2vw;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* misen en page */
+
+      h1 {
+        margin-top: 10rem;
+        margin-left: 10rem;
+      }
+
+      h2 {
+        margin-left: 15rem;
+      }
+
+      h3 {
+        margin-left: 20rem;
+      }
+
+      h4 {
+        margin-left: 25rem;
+      }
+    </style>
+    <style>
+      /* Project bouton*/
+      .image-button img {
+  width: 20vw; /* Largeur en pourcentage de la largeur de la fenêtre */
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  display: block; /* Évite les espaces blancs autour de l'image */
+}
+
+/* Styles pour le bouton lui-même */
+.image-button {
+  position: fixed; /* Fixe le bouton à une position spécifique sur l'écran */
+  right: 0; /* Colle le bouton au bord droit de la fenêtre */
+  top: 50%; /* Place le bouton au milieu verticalement de la fenêtre */
+  transform: translateY(-50%); /* Centre le bouton verticalement */
+  display: flex; /* Assure que le contenu est bien centré à l'intérieur du bouton */
+  border: none; /* Retire les bordures par défaut du bouton */
+  background: transparent; /* Assure que le fond est transparent */
+  padding: 0; /* Supprime les espacements internes par défaut */
+}
+
+/* Styles pour l'effet de survol du bouton */
+.image-button:hover {
+  opacity: 0.8; /* Réduit l'opacité au survol */
+}
+      .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Pour éviter que l'image déborde */
+    }
+
+.animated-image {
+    position: absolute;
+    width: 150px; /* Ajustez la taille de l'image selon vos besoins */
+    height: auto;
+    }
+
+.content {
+    position: relative;
+    z-index: 2; /* Assure que le texte est au-dessus de l'image */
+    padding: 20px;
+    }
+    
+    </style>
+    <!-- Texte-->
+    <h1>MATHEO DELESSERT</h1>
+    <h2>1. Interactive media designer</h2>
+    <h3>2. cool guy</h3>
+    <h4>3. experimental music enjoyer</h4>
+    <!-- Bouton -->
+    <a href="project.html" class="image-button">
+      <img src="BADGE.png" alt="go to lacasa" />
+    </a>
+    <!-- Björk head image info-->
+    <div class="container">
+      <img src="bjorK.png" alt="Bjork head" class="animated-image" id="animatedImage">
+    </div>
+    <div class="content">
+    </div>
+    <script src="script.js"></script>
+    </div>
+  </body>
+</html>
