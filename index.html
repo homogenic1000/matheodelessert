@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/font.css">
+    <style>
+        .custom-cursor {
+            cursor: url('bjork.png'), auto;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            background-color: white;
+            color: black;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            white-space: nowrap;
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: bold;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            white-space: nowrap;
+            text-decoration: none;
+            color: black;
+            font-size: clamp(12px, 2vw, 20px);
+            font-weight: 300;
+            transition: transform 0.6s ease-in-out, letter-spacing 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            font-weight: bolder;
+            transform: scale(1.1);
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            font-size: 2em;
+            background-color: white;
+        }
+
+        .changing-text-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: clamp(1rem, 1vw, 15rem);
+            padding-bottom: 20rem;
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .changing-text {
+            font-size: clamp(1rem, 5vw, 1200px);
+        }
+
+        #dynamic-word {
+            display: inline-block;
+            width: auto;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- HEADER TEXTE -->
+    <header>
+        <a href="index.html" class="logo">mathéo delessert</a>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html">portfolio</a></li> <!-- Lien vers la page portfolio.html -->
+                <li><a href="projets.html">projets</a></li> <!-- Lien vers la page projets.html -->
+                <li><a href="about.html">about me</a></li> <!-- Lien vers la page about.html -->
+                <li><a href="contact.html">contact</a></li> <!-- Lien vers la page contact.html -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section 1 -->
+    <div class="section" id="home">
+        <div class="changing-text-container">
+            <div class="changing-text">
+                Je suis <span id="dynamic-word">Mathéo Delessert</span>
+            </div>
+        </div>
+    
+        <script>
+            // Liste des mots à afficher
+            const words = ["Mathéo Delessert", "un étudiant", "un designer", "un björk stan", "passionné de webdesign", "sympa", "un baby 3d artist", "un photographe", "Lausannois", "un passionné de soundsystem"];
+            
+            // Sélectionne l'élément où le mot va changer
+            const dynamicWord = document.getElementById("dynamic-word");
+    
+            // Initialiser l'index
+            let index = 0;
+    
+            // Fonction pour changer le mot
+            function changeWord() {
+                dynamicWord.textContent = words[index]; // Change le contenu du texte
+                index = (index + 1) % words.length; // Boucle sur les mots de la liste
+            }
+    
+            // Changer le mot toutes les 2 secondes (2000ms)
+            setInterval(changeWord, 1400); // Appelle la fonction `changeWord` toutes les 1.1 secondes
+        </script>
+    </div>
+
+    <!-- Autres sections -->
+    <div class="section" id="about_me">
+        about me
+    </div>
+
+    <div class="section" id="portfolio">
+        check out my portfolio
+    </div>
+</body>
+</html>

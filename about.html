@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on se connaît?</title>
+    <link rel="stylesheet" href="css/font.css">
+    <style>
+        /* Curseur personnalisé */
+        .custom-cursor {
+            cursor: url('bjork.png'), auto;
+        }
+
+        /* Réinitialisation des marges et des paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px;
+            color: black;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        header.white-text {
+            color: white;
+        }
+
+        header.black-text {
+            color: black;
+        }
+
+        /* Logo */
+        .logo {
+            white-space: nowrap;
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: bold;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            white-space: nowrap;
+            text-decoration: none;
+            color: inherit;
+            font-size: clamp(12px, 2vw, 20px);
+            font-weight: 300;
+            transition: transform 0.6s ease-in-out, letter-spacing 0.4s ease, text-shadow 0.4s ease;
+        }
+
+        nav ul li a:hover {
+            font-weight: bolder;
+            transform: scale(1.1);
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mise en page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Sections */
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            font-size: 2em;
+        }
+
+        #about_me {
+            background-color: white;
+            color: black;
+            text-align: left;
+            padding-top: 2rem;
+            margin-right: 20rem;
+            margin-bottom: 120rem;
+        }
+
+        #serious {
+            height: 100vh;
+            width: 100%;
+            background-color: red;
+            color: white;
+        }
+
+        .rouge {
+            color: red;
+            font-size: 60px;
+        }
+
+        /* Pyramide d'images */
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            right: -24rem;
+        }
+
+        /* Style pour chaque "rangée" de la pyramide */
+        .pyramid-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pyramid-container img {
+            width: 250px;
+            margin: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Appliquer des délais différents pour chaque image */
+    .pyramid-row img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+    .pyramid-row img:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+    .pyramid-row img:nth-child(3) {
+    animation-delay: 1s;
+}
+@keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="custom-cursor">
+    <!-- HEADER -->
+    <header>
+        <a href="index.html" class="logo">mathéo delessert</a>
+        <nav>
+            <ul>
+                <li><a href="portfolio.html">portfolio</a></li>
+                <li><a href="projets.html">projets</a></li>
+                <li><a href="about.html">about me</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section About Me -->
+    <div class="section" id="about_me">
+        <p>J'adore le<span class="rouge"> rouge</span></p>
+        <!-- Conteneur pour la pyramide d'images flottantes -->
+        <div class="pyramid-container">
+            <div class="pyramid-row">
+                <img src="image/red_album.png" alt="Image 1">
+            </div>
+            <div class="pyramid-row">
+                <img src="image/freitag.png" class="image2" alt="Image 2">
+                <img src="image/lhc.png" alt="Image 3">
+            </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="serious">
+        Section sérieuse (rouge)
+    </div>
+
+    <div class="section" id="yay">
+        Another section
+    </div>
+
+    <script>
+        // Changer la couleur du texte du header en fonction de la section visible
+        const header = document.querySelector('header');
+        const aboutMeSection = document.getElementById('about_me');
+        const seriousSection = document.getElementById('serious');
+
+        function changeHeaderTextColor() {
+            const aboutMeRect = aboutMeSection.getBoundingClientRect();
+            const seriousRect = seriousSection.getBoundingClientRect();
+
+            if (aboutMeRect.top < window.innerHeight && aboutMeRect.bottom > 0) {
+                header.classList.add('black-text');
+                header.classList.remove('white-text');
+            } else if (seriousRect.top < window.innerHeight && seriousRect.bottom > 0) {
+                header.classList.add('white-text');
+                header.classList.remove('black-text');
+            } else {
+                header.classList.remove('white-text');
+                header.classList.add('black-text');
+            }
+        }
+
+        window.addEventListener('scroll', changeHeaderTextColor);
+        changeHeaderTextColor();
+    </script>
+</body>
+</html>
