@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>on se connaît?</title>
-    <link rel="stylesheet" href="matheodelessert/font.css">
+    <link rel="stylesheet" href="css/font.css">
     <style>
-        /* Curseur personnalisé */
-        .custom-cursor {
-            cursor: url('bjork.png'), auto;
-        }
-
         /* Réinitialisation des marges et des paddings */
         * {
             margin: 0;
@@ -79,11 +74,28 @@
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
-            font-family: Arial, sans-serif;
         }
 
         /* Sections */
-        .section {
+        .section_A {
+            margin: clamp(5px, 2vw, 20px);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            font-size: clamp(0.1rem, 2.5vw, 3.5vw)
+        }
+        .section_B{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+
+
+        .section_C{
             height: 100vh;
             display: flex;
             align-items: center;
@@ -91,36 +103,23 @@
             text-align: left;
             font-size: 2em;
         }
-
         #about_me {
             background-color: white;
             color: black;
-            text-align: left;
-            padding-top: 2rem;
-            margin-right: 20rem;
-            margin-bottom: 120rem;
+            
         }
 
         #serious {
-            height: 100vh;
-            width: 100%;
             background-color: red;
             color: white;
         }
 
         .rouge {
             color: red;
-            font-size: 60px;
-        }
+            font-size: clamp(1rem, 5vw, 5rem)
 
-        /* Pyramide d'images */
-        .pyramid-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            right: -24rem;
         }
+        
 
         /* Style pour chaque "rangée" de la pyramide */
         .pyramid-row {
@@ -135,16 +134,16 @@
         }
 
         /* Appliquer des délais différents pour chaque image */
-    .pyramid-row img:nth-child(1) {
+    .pyramid-row img:nth-child(0) {
     animation-delay: 0s;
 }
 
-    .pyramid-row img:nth-child(2) {
+    .pyramid-row img:nth-child(1) {
     animation-delay: 0.5s;
 }
 
-    .pyramid-row img:nth-child(3) {
-    animation-delay: 1s;
+    .pyramid-row img:nth-child(2) {
+    animation-delay: 2s;
 }
 @keyframes float {
             0%, 100% {
@@ -171,7 +170,7 @@
     </header>
 
     <!-- Section About Me -->
-    <div class="section" id="about_me">
+    <div class="section_A" id="about_me">
         <p>J'adore le<span class="rouge"> rouge</span></p>
         <!-- Conteneur pour la pyramide d'images flottantes -->
         <div class="pyramid-container">
@@ -187,11 +186,11 @@
         </div>
     </div>
 
-    <div class="section" id="serious">
+    <div class="section_B" id="serious">
         Section sérieuse (rouge)
     </div>
 
-    <div class="section" id="yay">
+    <div class="section_C" id="yay">
         Another section
     </div>
 
